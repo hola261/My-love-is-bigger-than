@@ -1,0 +1,63 @@
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .stars {
+      width: 200%;
+      height: 200%;
+      position: absolute;
+      background: transparent;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 1.5s infinite alternate, move 60s linear infinite;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+
+    @keyframes move {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-2000px, -2000px); }
+    }
+
+    .image-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateX(2000%);
+      opacity: 0;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .image-container img.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateX(0);
+    }
+
+    .image-container img.out {
+      transform: translate(-50%, -50%) translateX(-2000%);
+      opacity: 0;
+    }
